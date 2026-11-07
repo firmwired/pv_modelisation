@@ -6,8 +6,8 @@ Eg = 1.1;
 p = 1.3;
 ns = 36;
 np = 1;
-Isc = 4.8;
-Voc = 21.7;
+Isc = 8.02;
+Voc = 21.9;
 delta = 1e-8;
 Tref = 25 + 273.15; 
  
@@ -24,7 +24,7 @@ vtr = (k * Tref) / q;
 ir = Isc / (exp(Voc / (p * ns * vtr)) - 1);
 
 % parameters de chage et convertiseur D
-R_load = 30;     % resistance de la charge 
+R_load = 7.5;     % resistance de la charge (pour etre compatible avec la resistance modélisé circuit_pv.slx 30^2 / 120 = 7.5
 V_out_bus = 30;    
 mode_D = 'R';    
 D_min = 0.05;    % rapport cyclique min
@@ -35,16 +35,16 @@ temp_sweep = 15:5:65;
 
 dataset = [];
 
- figIV = figure('Color', 'w');
- hold on;
- grid on;
- 
- figPV = figure('Color', 'w');
- hold on;
- grid on;
- figMPPT = figure('Color', 'w');
- hold on;
-grid on;
+%figIV = figure('Color', 'w');
+%hold on;
+%grid on;
+
+%figPV = figure('Color', 'w');
+%hold on;
+%grid on;
+%figMPPT = figure('Color', 'w');
+%hold on;
+%grid on;
  
 for G_curr = G_sweep
     for c = 1:length(temp_sweep)
@@ -100,14 +100,14 @@ for G_curr = G_sweep
         
         dataset = [dataset; G_curr, temp_sweep(c), V_mpp, I_mpp, P_mpp, D_mpp];
         
-         figure(figMPPT);
-         plot(vpv, mppt, 'LineWidth', 1.8, 'DisplayName', sprintf('%d °C %d W/m²', temp_sweep(c), G_curr));
+         %figure(figMPPT);
+         %plot(vpv, mppt, 'LineWidth', 1.8, 'DisplayName', sprintf('%d °C %d W/m²', temp_sweep(c), G_curr));
          
-         figure(figIV);
-         plot(vpv, ipv, 'LineWidth', 1.8, 'DisplayName', sprintf('%d °C %d W/m²', temp_sweep(c), G_curr));
+         %figure(figIV);
+         %plot(vpv, ipv, 'LineWidth', 1.8, 'DisplayName', sprintf('%d °C %d W/m²', temp_sweep(c), G_curr));
           
-         figure(figPV);
-         plot(vpv, ppv, 'LineWidth', 1.8, 'DisplayName', sprintf('%d °C %d W/m²', temp_sweep(c), G_curr));
+         %figure(figPV);
+         %plot(vpv, ppv, 'LineWidth', 1.8, 'DisplayName', sprintf('%d °C %d W/m²', temp_sweep(c), G_curr));
     end
 end
 
@@ -117,16 +117,16 @@ targets = dataset(:, 6);    % col 6: [D_mpp]
 
 save('mppt_dataset.mat', 'dataset', 'inputs',   'targets');
  
- figure(figIV);
- title('I-V caractéristiques G = 800 W/m²');
- xlabel('V');
- ylabel('A');
- axis([0 25 0 6]);
- legend('show', 'Location', 'southwest');
- grid on;
+ %figure(figIV);
+ %title('I-V caractéristiques G = 800 W/m²');
+ %xlabel('V');
+ %ylabel('A');
+ %axis([0 25 0 6]);
+ %legend('show', 'Location', 'southwest');
+ %grid on;
  
- figure(figPV);
- title("P-V caractéristiques G = 800 W/m²");
- xlabel("tension");
- ylabel("Puissance");
- legend('show', "Location", "northwest")
+ %figure(figPV);
+ %title("P-V caractéristiques G = 800 W/m²");
+ %xlabel("tension");
+ %ylabel("Puissance");
+ %legend('show', "Location", "northwest")
