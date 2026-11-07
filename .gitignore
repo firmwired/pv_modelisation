@@ -11,3 +11,9 @@ slprj/
 *.prj   
  
 .autosave
+*.aux
+*.log
+*.fls
+*.synctex.gz
+*.fdb_latexmk
+*.out
