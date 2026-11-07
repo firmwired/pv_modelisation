@@ -1,7 +1,11 @@
 # PV modélisation sous MATLAB avec un commande MPPT piloté par FFNN
 
+
+
 ### Modélisation du PV sous Simulink:
-    -> la modélisation du PV sous simulink `circuit_pv.slx` avec un commande traditionnel MPPT (sur µcontroller)
+    -> la modélisation du PV sous simulink `circuit_pv.slx` avec un commande MPPT pilotée par FFNN (sur µcontroller)
+![simulink](figures/simulink.png)
+*Générateur PV sous Simulink avec un commande MPPT*
 ### Collecte des Données:
     -> le fichier `pv.m` utilise la méthode de Newton-Raphson pour calculer i_pv à chaque pas de temps puis on calcule alpha (le rapport cyclique d'hacheur boost) optimal pour une charge resistif, en fin les donnés sont sotcker sous un fichier .mat.
     N.B: Ce fichier fonctionne comme un modélisation mathématique du pv par methode Newton-raphson, et comme un collecteur des donnés veulliez editer le code selon votre desire.
