@@ -1,0 +1,14 @@
+ 
+ 
+*.autosave
+*.slxc
+ n
+*.m~
+ 
+*.mex*
+ 
+slprj/
+*.prj
+octave-workspace
+ 
+.autosave
