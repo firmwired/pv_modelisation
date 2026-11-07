@@ -6,8 +6,8 @@ Eg = 1.1;
 p = 1.3;
 ns = 36;
 np = 1;
-Isc = 4.8;
-Voc = 21.7;
+Isc = 8.02;
+Voc = 21.9;
 delta = 1e-8;
 Tref = 25 + 273.15; 
  
@@ -24,7 +24,7 @@ vtr = (k * Tref) / q;
 ir = Isc / (exp(Voc / (p * ns * vtr)) - 1);
 
 % parameters de chage et convertiseur D
-R_load = 30;     % resistance de la charge 
+R_load = 7.5;     % resistance de la charge, on est obligé d'utiser cette valuer du R modélisé circuit_pv.slx 
 V_out_bus = 30;    
 mode_D = 'R';    
 D_min = 0.05;    % rapport cyclique max
@@ -115,7 +115,7 @@ inputs = dataset(:, 1:2);   % col 1 et 2: [G, T]
  
 targets = dataset(:, 6);    % col 6: [D_mpp]
 
-save('mppt_dataset.mat', 'dataset', 'inputs', 'targets');
+save('mppt_dataset.mat', 'dataset', 'inputs',  'targets');
  
 % figure(figIV);
 % title('I-V caractéristiques');
