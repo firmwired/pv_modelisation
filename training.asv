@@ -1,7 +1,0 @@
-data = load("mppt_dataset.mat");
-X = data.inputs';
-Y = data.targets';
-
-net = fitnet(10, "trainlm");
-
-n
