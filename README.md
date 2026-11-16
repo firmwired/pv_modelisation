@@ -12,11 +12,17 @@
 ### training:
     -> fichier `training.m` initialise un réseau des neurones de type FFNN, puis il le entrîane sur les données enrgistrés.
 
+<table>
+  <tr>
+    <td align="center"><img src="figures/I-V.png" width="300" alt="Image 1"></td>
+    <td align="center"><img src="figures/P-V.png" width="300" alt="Image 2"></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="figures/performance.png" width="300" alt="Image 3"></td>
+    <td align="center"><img src="figures/fitting_regression.png" width="300" alt="Image 4"></td>
+  </tr>
+</table>
 
-| | |
-| :---: | :---: |
-| <img src="figures/I-V.png" width="300" alt="Image 1"> | <img src="figures/P-V.png" width="300" alt="Image 2"> |
-| <img src="figures/performance.png" width="300" alt="Image 3"> | <img src="figures/fitting_regression.png" width="300" alt="Image 4"> |
 *Figure 1: A: I-V charactéristique de notre PV modélisée sous différents température et irradience constant B: P-V charactéristique sous différents températures et un irradience constant C: Performance du FFNN aprés entrînement et D: Resultat du test sur notre network* 
 
 
